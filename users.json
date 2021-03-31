@@ -1,6 +1,6 @@
 [
     {
-        "prenom": Aldjia,
+        "prenom": "Aldjia",
         "nom": "Dadache",
         "email": "aldjia.dadache@gmail.com",
         "password": "prog_web",
@@ -10,7 +10,7 @@
 [
     {
 
-        "prenom": Hugo,
+        "prenom": "Hugo",
         "nom": "Mouden",
         "email": "hugo.mouden@gmail.com",
         "password": "web0003",
