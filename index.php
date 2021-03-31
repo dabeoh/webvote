@@ -2,15 +2,16 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Web Voting</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
   </head>
 
   <body>
-
-
+  
     <div class="maindiv">
 
       <!--main menu-->
@@ -49,10 +50,14 @@
       <button id="manageButton" onclick="manage();" style = "display : none">
       Gérer</button>
 
+      <!--Message de confirmation de l'authentification-->
+      <br>
+      <span style="display:none" id="authconfirm"></span>
+      <br><br>
+
       <!--bouton retour menu-->
       <button id="accueil" onclick="window.location.href='.'"
       style = "display : none">Retour Menu</button>
-
 
     </div>
   </body>

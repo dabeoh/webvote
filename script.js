@@ -4,6 +4,7 @@ function toggleVote(){
 	$("#ballotCode").css("display", "block");
   $("#voteButton").css("display", "block");
   $("#accueil").css("display", "inline-block");
+  $("#authconfirm").css("display", "inline-block");
 
   //cacher boutons init
   $("#toggleCreate").css("display", "none");
@@ -15,6 +16,7 @@ function toggleCreate(){
   $("#userInfo").css("display", "block");
   $("#createButton").css("display", "inline-block");
   $("#accueil").css("display", "inline-block");
+  $("#authconfirm").css("display", "inline-block");
 
   //cacher boutons init
 	$("#toggleCreate").css("display", "none");
@@ -28,6 +30,7 @@ function toggleManage(){
 	$("#ballotCode").css("display", "block");
   $("#manageButton").css("display", "block");
   $("#accueil").css("display", "inline-block");
+  $("#authconfirm").css("display", "inline-block");
 
   //cacher boutons init
   $("#toggleCreate").css("display", "none");
@@ -40,4 +43,19 @@ function create(){
   let usermail = $("#usermail").val();
   let userpwd =  $("#userpwd").val();
 
+  $.ajax({
+    method: "POST",
+    url: "auth.php",
+    data: { "usermail": usermail, "userpwd":userpwd }
+  }).done(function(e) {
+    if(e){
+      create2();
+    } else {
+        $("#authconfirm").html("<span class='ko'> erreur</span>");
+    }
+
+  }).fail(function(e) {
+    //console.log(e);
+    $("#msgvote").html("<span class='ko'> ERROR: network problem 9</span>");
+  });
 }
