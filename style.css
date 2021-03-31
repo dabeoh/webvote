@@ -1,0 +1,14 @@
+body {
+  background-color: lightblue;
+}
+
+.maindiv {
+	background-color: #33A8FF;
+  box-sizing: border-box;
+  padding: 20px;
+	margin: auto;
+	width: 50%;
+	height: 50%;
+	border: 2px;
+  border-radius: 5px;
+}
