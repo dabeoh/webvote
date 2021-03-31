@@ -48,9 +48,10 @@ function create(){
     url: "auth.php",
     data: { "usermail": usermail, "userpwd":userpwd }
   }).done(function(e) {
-    if(e){
-      create2();
-    } else {
+    if(e==1){
+      $("#authconfirm").html("<span class='ok'> ok</span>");
+    }
+    else {
         $("#authconfirm").html("<span class='ko'> erreur</span>");
     }
 
