@@ -3,20 +3,20 @@
 	$file = 'users.json'; 
 	$contents = file_get_contents($file); 
 	$data = json_decode($contents, true); 
+    error_log($contents);
 
 	$usermail = htmlspecialchars($_GET['usermail']);
 	$userpwd = htmlspecialchars($_GET["userpwd"]);
 
 	foreach($data as $key => $value){
         if($usermail == $value['email'] && $userpwd == $value['password']){
-        	console.log("Message here");
         	echo "ok";
-            return true;
+            die(0);
         }
-        else{
-        	console.log("Message");
+        else if($usermail == $value['email'] && $userpwd != $value['password']){
         	echo "error";
-        	return false;	
-        } 
+        	die();	
+        }
     }
+    echo "unknown";
 ?>

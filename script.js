@@ -44,16 +44,18 @@ function create(){
   let userpwd =  $("#userpwd").val();
 
   $.ajax({
-    method: "POST",
+    method: "GET",
     url: "auth.php",
     data: { "usermail": usermail, "userpwd":userpwd }
   }).done(function(e) {
-    if(e==1){
+    console.log(e);
+    if(e=='ok'){
       $("#authconfirm").html("<span class='ok'> ok</span>");
     }
-    else {
+    else if (e=='error'){
         $("#authconfirm").html("<span class='ko'> erreur</span>");
     }
+    else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
 
   }).fail(function(e) {
     //console.log(e);
