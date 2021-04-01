@@ -17,7 +17,6 @@ function toggleCreate(){
   $("#createButton").css("display", "inline-block");
   $("#accueil").css("display", "inline-block");
   $("#authconfirm").css("display", "inline-block");
-
   //cacher boutons init
 	$("#toggleCreate").css("display", "none");
 	$("#toggleManage").css("display", "none");
@@ -49,16 +48,23 @@ function create(){
     data: { "usermail": usermail, "userpwd":userpwd }
   }).done(function(e) {
     console.log(e);
-    if(e=='ok'){
+    if(e=="ok"){
       $("#authconfirm").html("<span class='ok'> ok</span>");
+      createBallot();
     }
-    else if (e=='error'){
-        $("#authconfirm").html("<span class='ko'> erreur</span>");
+    else if (e=="error"){
+        $("#authconfirm").html(
+          "<span class='ko'> erreur correspondance mail/mdp</span>");
     }
     else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
 
   }).fail(function(e) {
-    //console.log(e);
-    $("#msgvote").html("<span class='ko'> ERROR: network problem 9</span>");
+    $("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
   });
+}
+
+function createBallot(){
+  $("#menu").css("display", "none");
+  $("#ballotInfo").css("display", "block");
+
 }

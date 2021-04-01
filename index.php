@@ -14,51 +14,60 @@
   
     <div class="maindiv">
 
-      <!--main menu-->
-    	<button id="toggleVote" onclick="toggleVote();">
-    	Voter</button>
+      <div id="menu">
+        <!--main menu-->
+      	<button id="toggleVote" onclick="toggleVote();">
+      	Voter</button>
 
-    	<button id="toggleCreate" onclick="toggleCreate();">
-    	creer un scrutin</button>
+      	<button id="toggleCreate" onclick="toggleCreate();">
+      	creer un scrutin</button>
 
-    	<button id="toggleManage" onclick="toggleManage();">
-    	gerer un scrutin</button>
+      	<button id="toggleManage" onclick="toggleManage();">
+      	gerer un scrutin</button>
 
-      <!--form login user-->
-      <div id = "userInfo" style = "display : none">
-        <label for="Adresse mail" id="usermail"> Adresse mail</label>
-        <input type="mail" name="mail"> <br> <br>
-        <label for="password" id="userpwd"> Mot de passe</label>
-        <input type="password" name="password"> <br>
+        <!--form login user-->
+        <div id = "userInfo" style = "display : none">
+          <label for="usermail"> Adresse mail</label>
+          <input type="email" id="usermail"> <br> <br>
+          <label for="userpwd"> Mot de passe</label>
+          <input type="password" id="userpwd"> <br>
+        </div>
+
+        <!--text area for ballot code-->
+        <div id = "ballotCode" style = "display : none">
+          <label for="ballotNumber"> Numéro du scrutin : </label><br>
+          <input type="number" id="ballotNumber"> <br>
+        </div>
+
+        <!--bouton activation vote-->
+        <button id="voteButton" onclick="vote();" style = "display : none">
+        Voter</button>
+
+        <!--bouton activation creer scrutin-->
+        <button id="createButton" onclick="create();" style = "display : none">
+        Créer</button>
+
+        <!--bouton activation gerer scrutin-->
+        <button id="manageButton" onclick="manage();" style = "display : none">
+        Gérer</button>
+
+        <!--Message de confirmation de l'authentification-->
+        <br>
+        <span style="display:none" id="authconfirm"></span>
+        <br><br>
+
+      </div>
+      <div id="ballotInfo" style = "display : none">
+        <label for="question"> Question :</label>
+        <input type="text" id="question"><br><br>
+
+
       </div>
 
-      <!--text area for ballot code-->
-      <div id = "ballotCode" style = "display : none">
-        <label for="Numéro du scrutin"> Numéro du scrutin : </label><br>
-        <input type="number" name="ballotNumber"> <br>
-      </div>
-
-      <!--bouton activation vote-->
-      <button id="voteButton" onclick="vote();" style = "display : none">
-      Voter</button>
-
-      <!--bouton activation creer scrutin-->
-      <button id="createButton" onclick="create();" style = "display : none">
-      Créer</button>
-
-      <!--bouton activation gerer scrutin-->
-      <button id="manageButton" onclick="manage();" style = "display : none">
-      Gérer</button>
-
-      <!--Message de confirmation de l'authentification-->
-      <br>
-      <span style="display:none" id="authconfirm"></span>
-      <br><br>
-
-      <!--bouton retour menu-->
-      <button id="accueil" onclick="window.location.href='.'"
-      style = "display : none">Retour Menu</button>
-
+        <!--bouton retour menu-->
+        <button id="accueil" onclick="window.location.href='.'"
+        style = "display : none">Retour Menu</button>
+      
     </div>
   </body>
 </html>
