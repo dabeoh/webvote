@@ -57,16 +57,43 @@
         <br><br>
 
       </div>
+
       <div id="ballotInfo" style = "display : none">
+
         <label for="question"> Question :</label>
         <input type="text" id="question"><br><br>
 
+        <label for="options">Options :</label>
+        <fieldset id="voteOptions">
+          <button id="addoption" onclick="addOption();">Ajouter une Option</button><br>
+          <input type="text" class="voteoption">
+          <!--div qui se clone au moment d'un ajout d'option-->
+          <div id="option">
+            <input type="text" class="voteoption">
+            <button onclick="$(this).parent().remove();">effacer</button>
+          </div>
+        </fieldset>
 
-      </div>
+        <label for="voters">Liste des Votants</label>
+        <fieldset id="votertable">
+          <pre>Votants    Procurations</pre>
+          <button id="addvoter" onclick="addVoter();">Ajouter un votant</button></th>
+          <br>
+          <input class="voter" type="email">
+            <input onchange="" type="number" class="procuration"
+      min="0" max="2" value="0" style="width: 30px">
+          <!--div qui se clone au moment d'un ajout de votant-->
+          <div id="voter" class="voterdiv">
+            <input class="voter" type="email">
+            <input onchange="updVoters()" type="number" class="procuration"
+      min="0" max="2" value="0" style="width: 30px">
+            <button onclick="$(this).parent().remove();">effacer</button>
+          </div>
+        </fieldset>
+   </div>
 
         <!--bouton retour menu-->
-        <button id="accueil" onclick="window.location.href='.'"
-        style = "display : none">Retour Menu</button>
+        <button id="accueil" onclick="window.location.href='.'"style = "display : none">Retour Menu</button>
       
     </div>
   </body>

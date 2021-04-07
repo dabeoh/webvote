@@ -68,3 +68,21 @@ function createBallot(){
   $("#ballotInfo").css("display", "block");
 
 }
+
+//Ajouter une option de vote
+var optioncount = 0;
+function addOption() {
+    optioncount++;
+    var option = document.getElementById("option").cloneNode(true);
+    option.id += (optioncount + "");
+    document.getElementById("voteOptions").appendChild(option);
+}
+
+//Ajouter un votant
+var votercount = 0;
+function addVoter() {
+    votercount++;
+    var voter = document.getElementById("voter").cloneNode(true);
+    voter.id += (votercount + "");
+    document.getElementById("votertable").appendChild(voter);
+}

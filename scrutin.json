@@ -1,0 +1,17 @@
+[
+    {
+        "num_scrutin": 0, 
+        "question": "",
+        "options": "",
+        "organisateur":"",
+        "electeurs":[
+          {
+            "electeur":"",
+            "nr_procuration":0
+          }
+          ] ,
+        "procuration1": "",
+        "procuration2": ""
+
+    }
+]
