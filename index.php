@@ -66,28 +66,24 @@
         <label for="options">Options :</label>
         <fieldset id="voteOptions">
           <button id="addoption" onclick="addOption();">Ajouter une Option</button><br>
-          <input type="text" class="voteoption">
           <!--div qui se clone au moment d'un ajout d'option-->
           <div id="option">
             <input type="text" class="voteoption">
-            <button onclick="$(this).parent().remove();">effacer</button>
+            <button onclick="deleteOption(this);">effacer</button>
           </div>
         </fieldset>
 
         <label for="voters">Liste des Votants</label>
         <fieldset id="votertable">
-          <pre>Votants    Procurations</pre>
+          <pre>Votants      Procurations</pre>
           <button id="addvoter" onclick="addVoter();">Ajouter un votant</button></th>
           <br>
-          <input class="voter" type="email">
-            <input onchange="" type="number" class="procuration"
-      min="0" max="2" value="0" style="width: 30px">
           <!--div qui se clone au moment d'un ajout de votant-->
           <div id="voter" class="voterdiv">
             <input class="voter" type="email">
-            <input onchange="updVoters()" type="number" class="procuration"
+            <input onchange="" type="number" class="procuration"
       min="0" max="2" value="0" style="width: 30px">
-            <button onclick="$(this).parent().remove();">effacer</button>
+            <button onclick="deleteVoter(this);">effacer</button>
           </div>
         </fieldset>
    </div>

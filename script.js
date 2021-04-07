@@ -70,19 +70,43 @@ function createBallot(){
 }
 
 //Ajouter une option de vote
-var optioncount = 0;
+var optionID = 0;
+var optioncount = 1;
 function addOption() {
     optioncount++;
+    optionID++;
     var option = document.getElementById("option").cloneNode(true);
-    option.id += (optioncount + "");
+    option.id += (optionID + "");
     document.getElementById("voteOptions").appendChild(option);
 }
 
+//Supprimer une option de vote
+function deleteOption(opt){
+  console.log(optioncount);
+  if(optioncount > 1 && $(opt).parent().attr('id') != "option"){
+    $(opt).parent().remove();
+    optioncount--;
+  }
+  else console.log("Impossible de supprimer la première option");
+}
+
 //Ajouter un votant
-var votercount = 0;
+var voterID = 0;
+var votercount = 1;
 function addVoter() {
     votercount++;
+    voterID++;
     var voter = document.getElementById("voter").cloneNode(true);
-    voter.id += (votercount + "");
+    voter.id += (voterID + "");
     document.getElementById("votertable").appendChild(voter);
+}
+
+//Supprimer un votant
+function deleteVoter(v){
+  console.log(votercount);
+  if(votercount > 1 && $(v).parent().attr('id') != "voter"){
+    $(v).parent().remove();
+    votercount--;
+  }
+  else console.log("Il ne peut pas y avoir 0 votants");
 }
