@@ -7,7 +7,7 @@
         "electeurs":[
           {
             "electeur":"",
-            "nr_procuration":0
+            "nbr_procuration":0
           }
           ] ,
         "procuration1": "",

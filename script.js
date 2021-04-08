@@ -1,89 +1,99 @@
 //Fonctions d'affichage a partir du menu
-function toggleVote(){
-	$("#userInfo").css("display", "block");
-	$("#ballotCode").css("display", "block");
+
+//Afficher page identification pour voter
+function toggleVote() {
+  $("#userInfo").css("display", "block");
+  $("#ballotCode").css("display", "block");
   $("#voteButton").css("display", "block");
   $("#accueil").css("display", "inline-block");
   $("#authconfirm").css("display", "inline-block");
 
   //cacher boutons init
   $("#toggleCreate").css("display", "none");
-	$("#toggleManage").css("display", "none");
-	$("#toggleVote").css("display",   "none");
+  $("#toggleManage").css("display", "none");
+  $("#toggleVote").css("display", "none");
 }
-    
-function toggleCreate(){
+
+//Afficher page identification pour créer scrutin
+function toggleCreate() {
   $("#userInfo").css("display", "block");
   $("#createButton").css("display", "inline-block");
   $("#accueil").css("display", "inline-block");
   $("#authconfirm").css("display", "inline-block");
   //cacher boutons init
-	$("#toggleCreate").css("display", "none");
-	$("#toggleManage").css("display", "none");
-	$("#toggleVote").css("display",   "none");
+  $("#toggleCreate").css("display", "none");
+  $("#toggleManage").css("display", "none");
+  $("#toggleVote").css("display", "none");
 }
 
-function toggleManage(){
+//Afficher page identification pour gérer scrutin
+function toggleManage() {
   //Affichage nouvelle page
   $("#userInfo").css("display", "block");
-	$("#ballotCode").css("display", "block");
+  $("#ballotCode").css("display", "block");
   $("#manageButton").css("display", "block");
   $("#accueil").css("display", "inline-block");
   $("#authconfirm").css("display", "inline-block");
 
   //cacher boutons init
   $("#toggleCreate").css("display", "none");
-	$("#toggleManage").css("display", "none");
-	$("#toggleVote").css("display",   "none");
+  $("#toggleManage").css("display", "none");
+  $("#toggleVote").css("display", "none");
 }
 
-//Creation d'un scrutin
-function create(){
+/**
+ * Vérifier info login utilisateur
+ * Affiche page pour créer scrutin
+ */
+function createPage() {
   let usermail = $("#usermail").val();
-  let userpwd =  $("#userpwd").val();
+  let userpwd = $("#userpwd").val();
 
   $.ajax({
     method: "GET",
     url: "auth.php",
-    data: { "usermail": usermail, "userpwd":userpwd }
-  }).done(function(e) {
+    data: { "usermail": usermail, "userpwd": userpwd }
+  }).done(function (e) {
     console.log(e);
-    if(e=="ok"){
+    if (e == "ok") {
       $("#authconfirm").html("<span class='ok'> ok</span>");
-      createBallot();
+      $("#menu").css("display", "none");
+      $("#ballotInfo").css("display", "block");
     }
-    else if (e=="error"){
-        $("#authconfirm").html(
-          "<span class='ko'> erreur correspondance mail/mdp</span>");
+    else if (e == "error") {
+      $("#authconfirm").html(
+        "<span class='ko'> erreur correspondance mail/mdp</span>");
     }
     else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
 
-  }).fail(function(e) {
+  }).fail(function (e) {
     $("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
   });
 }
 
-function createBallot(){
-  $("#menu").css("display", "none");
-  $("#ballotInfo").css("display", "block");
-
+//Créer scrutin
+function createBallot() {
+  let voters = $(".voter");
+  voters.each(function () {
+    console.log($(this).val());
+  });
 }
 
 //Ajouter une option de vote
 var optionID = 0;
 var optioncount = 1;
 function addOption() {
-    optioncount++;
-    optionID++;
-    var option = document.getElementById("option").cloneNode(true);
-    option.id += (optionID + "");
-    document.getElementById("voteOptions").appendChild(option);
+  optioncount++;
+  optionID++;
+  var option = document.getElementById("option").cloneNode(true);
+  option.id += (optionID + "");
+  document.getElementById("voteOptions").appendChild(option);
 }
 
 //Supprimer une option de vote
-function deleteOption(opt){
+function deleteOption(opt) {
   console.log(optioncount);
-  if(optioncount > 1 && $(opt).parent().attr('id') != "option"){
+  if (optioncount > 1 && $(opt).parent().attr('id') != "option") {
     $(opt).parent().remove();
     optioncount--;
   }
@@ -94,17 +104,17 @@ function deleteOption(opt){
 var voterID = 0;
 var votercount = 1;
 function addVoter() {
-    votercount++;
-    voterID++;
-    var voter = document.getElementById("voter").cloneNode(true);
-    voter.id += (voterID + "");
-    document.getElementById("votertable").appendChild(voter);
+  votercount++;
+  voterID++;
+  var voter = document.getElementById("voter").cloneNode(true);
+  voter.id += (voterID + "");
+  document.getElementById("votertable").appendChild(voter);
 }
 
 //Supprimer un votant
-function deleteVoter(v){
+function deleteVoter(v) {
   console.log(votercount);
-  if(votercount > 1 && $(v).parent().attr('id') != "voter"){
+  if (votercount > 1 && $(v).parent().attr('id') != "voter") {
     $(v).parent().remove();
     votercount--;
   }

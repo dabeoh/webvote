@@ -44,7 +44,7 @@
         Voter</button>
 
         <!--bouton activation creer scrutin-->
-        <button id="createButton" onclick="create();" style = "display : none">
+        <button id="createButton" onclick="createPage();" style = "display : none">
         Créer</button>
 
         <!--bouton activation gerer scrutin-->
@@ -86,7 +86,8 @@
             <button onclick="deleteVoter(this);">effacer</button>
           </div>
         </fieldset>
-   </div>
+         <button id="createBallotButton" onclick="createBallot();">Créer le Scrutin</button>
+      </div>
 
         <!--bouton retour menu-->
         <button id="accueil" onclick="window.location.href='.'"style = "display : none">Retour Menu</button>
