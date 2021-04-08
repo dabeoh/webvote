@@ -67,25 +67,52 @@ function createPage() {
     else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
 
   }).fail(function (e) {
+    console.log(e);
     $("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
   });
 }
 
 //Créer scrutin
 function createBallot() {
+
+  let creator = $("#usermail").val();
+  console.log(creator);
+
+  let question = $("#question").val();
+  console.log(question);
+
+  let options = $(".voteoption");
+  for (let i = 0; i < options.length; i++) {
+    let opt = $(options[i]).val();
+    console.log(opt);
+  }
+
   let voters = $(".voter");
-  voters.each(function () {
-    console.log($(this).val());
-  });
+  for (let i = 0; i < voters.length; i++) {
+    let votermail = $(voters[i]).val();
+    let proc = $(voters[i]).parent().find(".procuration").val();
+    console.log(votermail);
+    console.log(proc);
+  } 
+
+  $.ajax({
+      method: "POST",
+      url: "creer_crutin.php",
+      data: { "creator": creator, "voters": voters, "question": question, "options": options}
+    }).done(function(e) {
+    
+    }).fail(function(e) {
+      console.log(e);
+    });
 }
 
 //Ajouter une option de vote
-var optionID = 0;
-var optioncount = 1;
+let optionID = 0;
+let optioncount = 1;
 function addOption() {
   optioncount++;
   optionID++;
-  var option = document.getElementById("option").cloneNode(true);
+  let option = document.getElementById("option").cloneNode(true);
   option.id += (optionID + "");
   document.getElementById("voteOptions").appendChild(option);
 }
@@ -101,12 +128,12 @@ function deleteOption(opt) {
 }
 
 //Ajouter un votant
-var voterID = 0;
-var votercount = 1;
+let voterID = 0;
+let votercount = 1;
 function addVoter() {
   votercount++;
   voterID++;
-  var voter = document.getElementById("voter").cloneNode(true);
+  let voter = document.getElementById("voter").cloneNode(true);
   voter.id += (voterID + "");
   document.getElementById("votertable").appendChild(voter);
 }

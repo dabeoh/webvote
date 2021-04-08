@@ -10,7 +10,7 @@
 	foreach($data as $key => $value){
         if($usermail == $value['email'] && $userpwd == $value['password']){
         	echo "ok";
-            die();
+          die();
         }
         else if($usermail == $value['email'] && $userpwd != $value['password'])
         {
