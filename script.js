@@ -72,7 +72,31 @@ function createPage() {
   });
 }
 
+function checkVoter(v){
+  let votermail = $(v).val();
+  
+  $.ajax({
+      method: "GET",
+      url: "checkVote.php",
+      data: { "votermail": votermail }
+    }).done(function (e) {
+    console.log(e);
+    if (e != "ok") {
+      console.log("non trouvé");
+      $("#checkvote").css("display", "inline-block");
+      $("#checkvote").html(
+        "<span class='ko'> Cette personne n'a pas droit au vote</span>");
+      
+    }
+
+  }).fail(function (e) {
+    console.log(e);
+    $("#checkvote").html("<span class='ko'> ERROR: network problem 9</span>");
+  });
+}
+
 //Créer scrutin
+let numscrutin = 0;
 function createBallot() {
 
   let creator = $("#usermail").val();
@@ -82,28 +106,36 @@ function createBallot() {
   console.log(question);
 
   let options = $(".voteoption");
+  let opttab = [];
   for (let i = 0; i < options.length; i++) {
     let opt = $(options[i]).val();
+    opttab.push(opt);
     console.log(opt);
   }
 
   let voters = $(".voter");
+  let votertab = [];
+  let proctab = [];
   for (let i = 0; i < voters.length; i++) {
     let votermail = $(voters[i]).val();
+    votertab.push(votermail);
     let proc = $(voters[i]).parent().find(".procuration").val();
+    proctab.push(proc);
     console.log(votermail);
     console.log(proc);
   } 
 
   $.ajax({
       method: "POST",
-      url: "creer_crutin.php",
-      data: { "creator": creator, "voters": voters, "question": question, "options": options}
+      url: "creer_scrutin.php",
+      data: { "scrutin": numscrutin, "creator": creator, "question": question,"voters": votertab,"procurations": proctab,  "options": opttab}
     }).done(function(e) {
-    
+    console.log(e);
     }).fail(function(e) {
       console.log(e);
     });
+
+    numscrutin++;
 }
 
 //Ajouter une option de vote
@@ -135,7 +167,7 @@ function addVoter() {
   voterID++;
   let voter = document.getElementById("voter").cloneNode(true);
   voter.id += (voterID + "");
-  document.getElementById("votertable").appendChild(voter);
+  document.getElementById("voterlist").appendChild(voter);
 }
 
 //Supprimer un votant

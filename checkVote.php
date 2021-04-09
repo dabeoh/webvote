@@ -5,18 +5,17 @@
 	$data = json_decode($contents, true); 
   error_log($contents);
 
-	$usermail = htmlspecialchars($_GET["usermail"]);
-	$userpwd = htmlspecialchars($_GET["userpwd"]);
+	$votermail = htmlspecialchars($_GET["votermail"]);
+	
 	foreach($data as $key => $value){
-        if($usermail == $value['email'] && $userpwd == $value['password']){
+        if($votermail == $value['email']){
         	echo "ok";
           die();
         }
-        else if($usermail == $value['email'] && $userpwd != $value['password'])
+        else
         {
         	echo "error";
         	die();	
         }
     }
-    echo "unknown";
 ?>
