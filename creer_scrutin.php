@@ -21,6 +21,7 @@
           "nbr_procuration" => $procurations
         )
     );
+
   $json = json_encode($data, JSON_PRETTY_PRINT);
   file_put_contents("scrutin.json", $json);
 ?>
