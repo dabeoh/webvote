@@ -74,15 +74,16 @@
         </fieldset>
 
         <label for="voters">Liste des Votants</label>
-        <fieldset id="votertable">
+        <fieldset id="voterlist">
           <pre>Votants      Procurations</pre>
           <button id="addvoter" onclick="addVoter();">Ajouter un votant</button></th>
           <br>
           <!--div qui se clone au moment d'un ajout de votant-->
           <div id="voter" class="voterdiv">
-            <input class="voter" type="email">
+            <input class="voter" type="email" onchange="checkVoter(this);">
             <input onchange="" type="number" class="procuration"
       min="0" max="2" value="0" style="width: 30px">
+            <span style="display:none" id="checkvote"></span>
             <button onclick="deleteVoter(this);">effacer</button>
           </div>
         </fieldset>
