@@ -1,17 +1,15 @@
 [
     {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "1",
-        "question": "Question 1",
+        "creator": "aldjia.dadache@gmail.com",
+        "num_scrutin": "6664",
+        "question": "q2",
         "options": [
-            "Opt1",
-            "Opt2",
-            "Opt3"
+            "o"
         ],
         "electeurs": {
             "electeur": [
-                "hugo.mouden@gmail.com",
-                "vot2"
+                "aldjia.dadache@gmail.com",
+                "hugo.mouden@gmail.com"
             ],
             "nbr_procuration": [
                 "0",
@@ -20,271 +18,15 @@
         }
     },
     {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "0",
-        "question": "localhost",
+        "creator": "aldjia.dadache@gmail.com",
+        "num_scrutin": "9103",
+        "question": "q3",
         "options": [
-            "o1"
+            "z"
         ],
         "electeurs": {
             "electeur": [
-                "v1"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "0216",
-        "question": "q146",
-        "options": [
-            "o"
-        ],
-        "electeurs": {
-            "electeur": [
-                "v"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "0749",
-        "question": "q148",
-        "options": [
-            "o"
-        ],
-        "electeurs": {
-            "electeur": [
-                "v"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "6566",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "8742",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "6253",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "9902",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "4145",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "9913",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "5037",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "1592",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "2273",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "8192",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                "hugo.mouden@gmai"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "7205",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "0434",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "7336",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "8278",
-        "question": "",
-        "options": [
-            ""
-        ],
-        "electeurs": {
-            "electeur": [
-                ""
+                "hugo.mouden@gmail.com"
             ],
             "nbr_procuration": [
                 "0"

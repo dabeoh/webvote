@@ -1,5 +1,5 @@
 /****************************************************************/
-/*		   Fonctions d'affichage a partir du menu				*/
+/*		   Fonctions d'affichage a partir du menu		          		*/
 /****************************************************************/
 
 //Afficher page identification pour voter
@@ -217,7 +217,7 @@ function deleteVoter(v) {
 }
 
 /****************************************************************/
-/*		  	 Fonctions utiles Vote à un scrutin					*/
+/*		  	 Fonctions utiles Vote à un scrutin				          	*/
 /****************************************************************/
 
 /**
@@ -236,7 +236,7 @@ function votePage() {
     console.log(e);
     if (e == "ok") {
       $("#authconfirm").html("<span class='ok'> ok</span>");
-      vote();
+      authVote();
     }
     else if (e == "error") {
       $("#authconfirm").html(
@@ -250,41 +250,36 @@ function votePage() {
   });
 }
 
+
 //Vérifie que le code entré existe et que la personne a le droit d'y voter
-fuction vote(){
+function authVote(){
+
 	let usermail = $("#usermail").val();
-  	let userpwd = $("#userpwd").val(); 
-  	let ballotNumber = $("#ballotNumber").val();
+  let userpwd = $("#userpwd").val(); 
+  let ballotNumber = $("#ballotNumber").val();
 
-  	$.ajax({
+  $.ajax({
     method: "POST",
-    url: "vote.php",
-    data: { "usermail": usermail, "userpwd":userpwd, "ballotNumber": ballotNumber }
-  }).done(function(e) {
-    //console.log(e);
+    dataType: "json",
+    url: "auth_vote.php",
+    data: { "usermail": usermail, "ballotNumber": ballotNumber }
+  }).done(function(obj) {
+    console.log(obj);
+    for(e of obj){
+      if (e.check == 1) {
+        $("#authconfirm").html("<span class='ok'>scrutin trouvé</span>");
+        $("#menu").css("display", "none");
+        $("#votingPage").css("display", "block");
+        $("#questionfield").html("<span>"+e.question+"</span>");
+        
+      }
 
-    if(e.ballotid != codeid){
-      $("#msgvote").html("<span class='ko'> ERROR: wrong ballot id</span>");
-    } else if (publicKey.indexOf("-----BEGIN PUBLIC KEY-----")>=0){
-      $("#msg0").fadeOut( "slow", function() {
-        $("#voterid").val($("#nameid").val());
-        $("#voterpasswd").val($("#password").val());
-
-        $("#ballotid").val($("#codeid").val());
-        $("#questionid").val(e.question);
-
-        $("#msg0").css("display", "none");
-        $("#msg2").css("display", "block");
-        dragElement(document.getElementById("msg2"));
-        let options = e.options.split(',');
-        for (let i=0;i<options.length;i++){
-          //$("#optvote").prepend("<option "+(i==options.length-1?'selected':'')+" value='"+options[i]+"'>"+options[i]+"</option>")
-          if (options[i].trim()!="")
-            $("#rbvote").prepend("<label><input type='radio' onchange='updateRBVote()' name= 'persvote' value='"+options[i]+"'</input>"+options[i]+"</label><br>");
-         }
-      });
-    } else
-      $("#msgvote").html("<span class='ko mini'> ERROR:<br> "+nameid+"<br>cannot vote for #"+codeid+"</span>");
+    else if (e == "error") {
+      $("#authconfirm").html(
+        "<span class='ko'> erreur correspondance user/scrutin</span>");
+    }
+    else $("#authconfirm").html("<span class='ko'> scrutin inconnu</span>")
+    }
   }).fail(function(e) {
     console.log(e);
     $("#msgvote").html("<span class='ko'> ERROR: network problem 5 </span>");

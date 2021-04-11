@@ -14,8 +14,8 @@
 
 	<div class="maindiv">
 
+    <!----------Main Menu---------------------------------->
 		<div id="menu">
-			<!--main menu-->
 			<button id="toggleVote" onclick="toggleVote();">
 			Voter</button>
 
@@ -36,7 +36,7 @@
 			<!--text area for ballot code-->
 			<div id = "ballotCode" style = "display : none">
 				<label for="ballotNumber"> Numéro du scrutin : </label><br>
-				<input type="number" id="ballotNumber"> <br>
+				<input type="number" id="ballotNumber" min="0" max="9999"> <br>
 			</div>
 
 			<!--bouton activation vote-->
@@ -58,8 +58,8 @@
 
 		</div>
 
+    <!--------Creation Scrutin----------------------------->
 		<div id="ballotInfo" style = "display : none">
-
 			<label for="question"> Question :</label>
 			<input type="text" id="question"><br><br>
 
@@ -91,6 +91,14 @@
 			<span style="display:none" id="createBallotConfirm"></span>
 		</div>
 
+    <!--------Vote Scrutin--------------------------------->
+		<div id="votingPage" style = "display : none">
+      Question :
+      <span id="questionfield"></span>
+      <br>
+      Choix :
+      <fieldset id="votingchoice"></fieldset>
+    </div>
 		<div>
 			<!--bouton retour menu-->
 			<button id="accueil" onclick="window.location.href='.'"style = "display : none">Retour Menu</button>
