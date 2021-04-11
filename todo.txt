@@ -1,2 +1,0 @@
-1 - Verification id / mdp dans le json
-2 - 

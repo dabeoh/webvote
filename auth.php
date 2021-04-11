@@ -3,7 +3,7 @@
 	$file = 'users.json'; 
 	$contents = file_get_contents($file); 
 	$data = json_decode($contents, true); 
-  error_log($contents);
+  	error_log($contents);
 
 	$usermail = htmlspecialchars($_GET["usermail"]);
 	$userpwd = htmlspecialchars($_GET["userpwd"]);

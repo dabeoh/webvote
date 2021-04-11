@@ -15,6 +15,7 @@ body {
 
 .ok{
 	color: green;
+	background-color: yellow;
 }
 
 .ko{

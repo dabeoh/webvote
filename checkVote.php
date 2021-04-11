@@ -9,8 +9,8 @@
 	
 	foreach($data as $key => $value){
         if($votermail == $value['email']){
-        	echo "ok";
-          die();
+            echo "ok";
+            die();
         }
         else
         {
