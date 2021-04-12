@@ -44,7 +44,7 @@ function toggleManage() {
 }
 
 /****************************************************************/
-/*		  	 Fonctions utiles création scrutin 					*/
+/*		  	 Fonctions utiles création scrutin 				          	*/
 /****************************************************************/
 
 /**
@@ -271,6 +271,27 @@ function authVote(){
         $("#menu").css("display", "none");
         $("#votingPage").css("display", "block");
         $("#questionfield").html("<span>"+e.question+"</span>");
+
+        let opt = e.options;
+        let optdiv = $('<div></div>')
+        for (let i=0;i<opt.length;i++){
+          let optinput = $("<input type='radio' name= 'choicevote' value='"+opt[i]+"'</input><label>'"+opt[i]+"'</label><br>");
+          optdiv.append(optinput);
+          $(#)
+        }
+
+        for (var k = 0; k < group.length; k++) {
+
+        // add each member
+      var member = $('<div></div>')
+      var memberInput = $('<input type="text" id="member" name="member['+groupIndex+']['+k+']" value="'+group[k].name+'">')
+      var memberRemove = $('<input onclick="removeMember(this)" data-member-index="'+k+'" data-group-index="'+groupIndex+'" type="button" class="remove"/>');
+      member.append(memberInput)
+      member.append(memberRemove)
+
+      groupFieldSet.append(member)
+
+    }
         
       }
 
