@@ -19,16 +19,11 @@
 
         else if($ballotNumber == $value['num_scrutin'] && in_array($votermail, $value["electeurs"]["electeur"])==FALSE)
         {
-        	echo "error";
+        	array_push($result, array("check"=>0));
+          echo json_encode($result);
         	die();	
         }
     }
-    echo "unknown";
+    array_push($result, array("check"=>-1));
+    echo json_encode($result);
 ?>
-
-
-id : $usermail
-nb_proc : indice(["electeurs"]["electeur"][$votermail])
-          DANS ["electeurs"]["proc"]
-question : $question (dans le tab de l'id du scrutin)
-options : $option (dans le tab de l'id du scrutin)

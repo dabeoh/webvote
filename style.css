@@ -1,9 +1,9 @@
 body {
- 	background-color: lightblue;
+ 	background-color: #bce4e5;
 }
 
 .maindiv {
-	background-color: #33A8FF;
+	background-color: #9dcaec;
   box-sizing: border-box;
   padding: 20px;
 	margin: auto;
@@ -20,4 +20,20 @@ body {
 
 .ko{
 	color: red;
+}
+
+button {
+  border-radius:50px;
+  color: #0D98BA;
+  background-color: #e0ffff;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  font-weight: bold;
+  text-transform:uppercase;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px 5px;
+  cursor: pointer;
 }

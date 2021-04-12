@@ -9,3 +9,10 @@
 
 ## id vote - gerer scrutin - voter
 - checker que la personne est bien dans le scrutin
+
+### check scrutin
+id : $usermail
+nb_proc : indice(["electeurs"]["electeur"][$votermail])
+          DANS ["electeurs"]["proc"]
+question : $question (dans le tab de l'id du scrutin)
+options : $option (dans le tab de l'id du scrutin)
