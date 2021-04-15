@@ -1,25 +1,29 @@
+h1{
+  color: rgb(13, 102, 186);
+}
+
 body {
- 	background-color: #bce4e5;
+  background-color: #bce4e5;
 }
 
 .maindiv {
-	background-color: #9dcaec;
+  background-color: #9dcaec;
   box-sizing: border-box;
   padding: 20px;
-	margin: auto;
-	width: 75%;
-	height: 50%;
-	border: 2px;
+  margin: auto;
+  width: 75%;
+  height: 50%;
+  border: 2px;
   border-radius: 5px;
 }
 
 .ok{
-	color: green;
-	background-color: yellow;
+  color: green;
+  background-color: yellow;
 }
 
 .ko{
-	color: red;
+  color: red;
 }
 
 button {
@@ -36,4 +40,15 @@ button {
   font-size: 15px;
   margin: 10px 5px;
   cursor: pointer;
+}
+
+a:link 
+{ 
+ color: rgb(13, 102, 186);
+ text-decoration:none; 
+} 
+
+a:visited{
+  color: rgb(13, 102, 186);
+  text-decoration:none;
 }

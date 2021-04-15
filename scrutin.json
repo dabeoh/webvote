@@ -1,110 +1,90 @@
-[
-    {
-        "creator": "aldjia.dadache@gmail.com",
-        "num_scrutin": "6664",
-        "question": "q2",
-        "options": [
-            "o"
-        ],
-        "electeurs": {
-            "electeur": [
-                "aldjia.dadache@gmail.com",
-                "hugo.mouden@gmail.com"
-            ],
-            "nbr_procuration": [
-                "0",
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "aldjia.dadache@gmail.com",
-        "num_scrutin": "9103",
-        "question": "q3",
-        "options": [
-            "z"
-        ],
-        "electeurs": {
-            "electeur": [
-                "hugo.mouden@gmail.com"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
+{
+    "4504": {
         "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "3265",
-        "question": "q2128",
+        "num_scrutin": "4504",
+        "question": "\u00e7a va ?",
         "options": [
-            "oui",
-            "non",
-            "nsp"
+            "Oui ",
+            "Non",
+            "J'ai oubli\u00e9"
         ],
+        "etat": "ferm\u00e9",
         "electeurs": {
-            "electeur": [
-                "hugo.mouden@gmail.com"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
+            "aldjia.dadache@gmail.com": {
+                "proc": "0",
+                "reste": "0"
+            }
+        },
+        "points": {
+            "J": 6
         }
     },
-    {
+    "6004": {
         "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "4778",
-        "question": "question ?",
-        "options": [
-            "oui",
-            "non",
-            "nsp"
-        ],
-        "electeurs": {
-            "electeur": [
-                "hugo.mouden@gmail.com"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
-        }
-    },
-    {
-        "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "1057",
-        "question": "question ?",
+        "num_scrutin": "6004",
+        "question": "Avez-vous dormi ?",
         "options": [
             "Oui",
             "Non",
-            "Nsp"
+            "Javais un projet \u00e0 finir"
         ],
+        "etat": "ferm\u00e9",
         "electeurs": {
-            "electeur": [
-                "hugo.mouden@gmail.com"
-            ],
-            "nbr_procuration": [
-                "0"
-            ]
+            "hugo.mouden@gmail.com": {
+                "proc": "1",
+                "reste": 0
+            },
+            "aldjia.dadache@gmail.com": {
+                "proc": "2",
+                "reste": "3"
+            }
+        },
+        "points": {
+            "J": 1,
+            "Oui": 1,
+            "Non": 2,
+            "": 1,
+            "Javais un projet \u00e0 finir": 2
         }
     },
-    {
+    "3064": {
         "creator": "hugo.mouden@gmail.com",
-        "num_scrutin": "0463",
-        "question": "",
-        "options": [
-            ""
-        ],
+        "num_scrutin": "3064",
+        "question": "a",
+        "options": null,
+        "etat": "ouvert",
         "electeurs": {
-            "electeur": [
-                "",
-                "",
-                ""
-            ],
-            "nbr_procuration": [
-                "1",
-                "0",
-                "2"
-            ]
+            "hugo.mouden@gmail.com": {
+                "proc": "2",
+                "reste": 3
+            }
+        },
+        "points": {
+            "": 3
+        }
+    },
+    "2137": {
+        "creator": "hugo.mouden@gmail.com",
+        "num_scrutin": "2137",
+        "question": "a",
+        "options": [
+            "z",
+            "z",
+            "zz"
+        ],
+        "etat": "ferm\u00e9",
+        "electeurs": {
+            "hugo.mouden@gmail.com": {
+                "proc": "0",
+                "reste": 0
+            },
+            "aldjia.dadache@gmail.com": {
+                "proc": "0",
+                "reste": 0
+            }
+        },
+        "points": {
+            "zz": 2
         }
     }
-]
+}

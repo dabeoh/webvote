@@ -1,15 +1,26 @@
 [
     {
         "prenom": "Aldjia",
-        "nom": "Dadache",
+        "nom": "DADACHE",
         "email": "aldjia.dadache@gmail.com",
-        "password": "prog_web"
-
+        "password": "web1"
     },
     {
-        "prenom": "Hugo",
-        "nom": "Mouden",
+        "prenom": "Mouden",
+        "nom": "Hugo",
         "email": "hugo.mouden@gmail.com",
-        "password": "web0003"
+        "password": "web2"
+    },
+    {
+        "prenom": "Fr\u00e9d\u00e9ric",
+        "nom": "Vernier",
+        "email": "fred.vernier@free.fr",
+        "password": "webweb"
+    },
+    {
+        "prenom": "Martin",
+        "nom": "dupont",
+        "email": "b@mail.com",
+        "password": "martin"
     }
 ]
