@@ -27,7 +27,7 @@ function toggleVote() {
 	$("#accueil").css("display", "inline-block");
 	$("#authconfirm").css("display", "inline-block");
 	//cacher boutons init
-  	$("#creercompte").css("display","none");
+	$("#creercompte").css("display","none");
 	$("#toggleCreate").css("display", "none");
 	$("#toggleManage").css("display", "none");
 	$("#toggleVote").css("display", "none");
@@ -40,7 +40,7 @@ function toggleCreate() {
 	$("#accueil").css("display", "inline-block");
 	$("#authconfirm").css("display", "inline-block");
 	//cacher boutons init
-  $("#creercompte").css("display","none");
+	$("#creercompte").css("display","none");
 	$("#toggleCreate").css("display", "none");
 	$("#toggleManage").css("display", "none");
 	$("#toggleVote").css("display", "none");
@@ -55,14 +55,14 @@ function toggleManage() {
 	$("#accueil").css("display", "inline-block");
 	$("#authconfirm").css("display", "inline-block");
 	//cacher boutons init
-  $("#creercompte").css("display","none");
+	$("#creercompte").css("display","none");
 	$("#toggleCreate").css("display", "none");
 	$("#toggleManage").css("display", "none");
 	$("#toggleVote").css("display", "none");
 }
 
 /****************************************************************/
-/*		  	 Fonctions utiles création nouvel utilisateur         */
+/*		  	 Fonctions utiles création nouvel utilisateur       */
 /****************************************************************/
 
 function createUser(){
@@ -70,26 +70,26 @@ function createUser(){
 	let nom=$("#nom").val();
 	let prenom = $("#prenom").val();
 	let password = $("#password").val();
-$.ajax({
- 		method: "POST",
- 		url: "createUser.php",
- 		data: { "usermail": usermail,
- 		 "password" : password,
- 		 "prenom": prenom,
- 		 "nom": nom}
+	$.ajax({
+		method: "POST",
+		url: "createUser.php",
+		data: { "usermail": usermail,
+		"password" : password,
+		"prenom": prenom,
+		"nom": nom}
 
- 	}).done(function (e) {
-      	console.log("compte créé avec succès");
-        $("#authconfirm").html(
- 				"<span class='ok'> Utilisateur créé avec succès</span>");
- 	}).fail(function(e) {
+	}).done(function (e) {
+		console.log("compte créé avec succès");
+		$("#authconfirm").html(
+			"<span class='ok'> Utilisateur créé avec succès</span>");
+	}).fail(function(e) {
 		console.log(e);
 	});
 
 }
 
 /****************************************************************/
-/*		  	 Fonctions utiles création scrutin 				          	*/
+/*		  	 Fonctions utiles création scrutin 			      	*/
 /****************************************************************/
 
 /**
@@ -192,7 +192,7 @@ function createBallot() {
 	//et d'un tableau contenant toutes les procurations
 	for (let voter of voters){
 
-	votersList[$(voter).val()] = {
+		votersList[$(voter).val()] = {
 			proc : parseInt($(voter).parent().find(".procuration").val()),
 			reste : parseInt($(voter).parent().find(".procuration").val())+1
 		}
@@ -201,18 +201,18 @@ function createBallot() {
 
 		console.log(votersList);
 	}
-
-	$.ajax({
+	if(opttab.length > 1){
+		$.ajax({
 		method: "POST",
 		url: "createBallot.php",
 		data: {
 			"scrutin": numscrutin,
-		 	"creator": creator,
-		 	"question": question,
-		 	"voters": votersList,
-		 	"procurations": proctab,
-		 	"options": opttab
-		 }
+			"creator": creator,
+			"question": question,
+			"voters": votersList,
+			"procurations": proctab,
+			"options": opttab
+		}
 	}).done(function(e) {
 		console.log("scrutin créé avec succès");
 
@@ -228,6 +228,12 @@ function createBallot() {
 	}).fail(function(e) {
 		console.log(e);
 	});
+	}
+	else{
+		$("#createBallotConfirm").css("display","inline-block");
+		$("#createBallotConfirm").html("<span class='ko'>Veuillez sélectionner au moins deux options</span>");
+	}
+	
 }
 
 //Ajouter une option de vote
@@ -273,7 +279,7 @@ function deleteVoter(v) {
 }
 
 /****************************************************************/
-/*		  	 Fonctions utiles Vote à un scrutin				          	*/
+/*		  	 Fonctions utiles Vote à un scrutin		         	*/
 /****************************************************************/
 
 /**
@@ -320,27 +326,27 @@ function authVote(){
 		data: { "usermail": usermail, "ballotNumber": ballotNumber }
 	}).done(function(e) {
 		console.log('request successfully ended');
+		if (e.check == 1) {
+			$("#authconfirm").html("<span class='ok'>scrutin trouvé</span>");
+			$("#menu").css("display", "none");
+			$("#votingPage").css("display", "block");
+			$("#questionfield").html("<span>"+e.question+"</span>");
 
-			if (e.check == 1) {
-				$("#authconfirm").html("<span class='ok'>scrutin trouvé</span>");
-				$("#menu").css("display", "none");
-				$("#votingPage").css("display", "block");
-				$("#questionfield").html("<span>"+e.question+"</span>");
-
-				let opt = e.options;
-				let optdiv = $('<div></div>');
-				for (let i=0; i<opt.length; i++){
-					let optinput = $("<input type='radio' name= 'choicevote' value='"+opt[i]+"'</input><label>"+opt[i]+"</label><br>");
-					optdiv.append(optinput);
-					$('#votingchoice').append(optdiv);
-				}
+			let opt = e.options;
+			let optdiv = $('<div></div>');
+			for (let i=0; i<opt.length; i++){
+				let optinput = $("<input type='radio' name= 'choicevote' value='"+opt[i]+"'</input>\
+								  <label>"+opt[i]+"</label><br>");
+				optdiv.append(optinput);
+				$('#votingchoice').append(optdiv);
 			}
+		}
 
-			else if (e.check == 0) {
-				$("#authconfirm").html(
-					"<span class='ko'> erreur correspondance user/scrutin</span>");
-			}
-			else $("#authconfirm").html("<span class='ko'> scrutin inconnu</span>")
+		else if (e.check == 0) {
+			$("#authconfirm").html(
+				"<span class='ko'>Vous n'avez pas le droit de voter à ce scrutin</span>");
+		}
+		else $("#authconfirm").html("<span class='ko'>scrutin inconnu</span>")
 
 	}).fail(function(e) {
 		console.log(e);
@@ -353,66 +359,70 @@ function confirmVote(){
 
 	let usermail = $("#usermail").val();
 	let ballotNumber = $("#ballotNumber").val();
-  let vote = $("input[name='choicevote']:checked").val();
+	let vote = $("input[name='choicevote']:checked").val();
 
 
 
-  $.ajax({
+	$.ajax({
 		method: "POST",
 		url: "confirmVote.php",
 		data: {
 			"ballotNumber": ballotNumber,
-		 	"vote" : vote,
-		 	"usermail" : usermail }
-	}).done(function(e) {
-    console.log(e);
-	if (e == "ok") {
-			$("#voteconfirm").html("<span class='ok'>vote enregistré avec succès</span>");
-  }
-  else if(e == "error") {
-		console.log("vote non enregistré");
-		$("#voteconfirm").html("<span class='ko'>vous n'avez plus le droit de voter</span>");
+			"vote" : vote,
+			"usermail" : usermail }
+		}).done(function(e) {
+			console.log(e);
+			if (e == "ok") {
+				$("#voteconfirm").html("<span class='ok'>vote enregistré avec succès</span>");
+			}
+			else if(e == "error") {
+				console.log("vote non enregistré");
+
+				$("#voteconfirm").html("<span class='ko'>vous n'avez plus le droit de voter</span>");
+				$("#votingchoice").prop('disabled', true);
+				$("#confirmVoteButton").prop('disabled', true);
+
+			}
+		}).fail(function(e) {
+			console.log(e);
+
+			$("#voteconfirm").html("<span class='ko'> ERROR: network problem 5 </span>");
+		});
+		console.log('hi3')
 	}
-	}).fail(function(e) {
-		console.log(e);
-		
-	$("#voteconfirm").html("<span class='ko'> ERROR: network problem 5 </span>");
-	});
-  console.log('hi3')
-}
 
 
-/****************************************************************/
-/*		  	 Fonctions utiles Gérer un scrutin				          	*/
-/****************************************************************/
+	/****************************************************************/
+	/*		  	 Fonctions utiles Gérer un scrutin				          	*/
+	/****************************************************************/
 
 
-function manage() {
+	function manage() {
 
-  let usermail = $("#usermail").val();
- 	let userpwd = $("#userpwd").val();
-  let ballotNumber = $("#ballotNumber").val();
+		let usermail = $("#usermail").val();
+		let userpwd = $("#userpwd").val();
+		let ballotNumber = $("#ballotNumber").val();
 
- 	$.ajax({
- 		method: "POST",
- 		url: "auth.php",
- 		data: { "usermail": usermail, "userpwd": userpwd }
- 	}).done(function (e) {
- 		console.log(e);
- 		if (e == "ok") {
- 			$("#authconfirm").html("<span class='ok'> ok </span>");
- 			authManage();
- 		}
- 		else if (e == "error") {
- 			$("#authconfirm").html(
- 				"<span class='ko'> erreur correspondance mail/mdp</span>");
- 		}
- 		else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
+		$.ajax({
+			method: "POST",
+			url: "auth.php",
+			data: { "usermail": usermail, "userpwd": userpwd }
+		}).done(function (e) {
+			console.log(e);
+			if (e == "ok") {
+				$("#authconfirm").html("<span class='ok'> ok </span>");
+				authManage();
+			}
+			else if (e == "error") {
+				$("#authconfirm").html(
+					"<span class='ko'> erreur correspondance mail/mdp</span>");
+			}
+			else $("#authconfirm").html("<span class='ko'> utilisateur inconnu</span>")
 
- 	}).fail(function (e) {
- 		console.log(e);
- 		$("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
- 	});
+		}).fail(function (e) {
+			console.log(e);
+			$("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
+		});
 }
 
 function authManage(){
@@ -455,26 +465,25 @@ function authManage(){
  		$("#authconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
  	});
 }
-
 function endVote(){
-  let ballotNumber = $("#ballotNumber").val();
-  $.ajax({
- 		method: "POST",
- 		url: "endVote.php",
- 		data: { "ballotNumber": ballotNumber }
- 	}).done(function (e) {
-     console.log(e);
-     $("#results").css("display", "inline-block");
-    
-    if(e=="ok"){
-      console.log("scrutin fermé");
-      $("#manageconfirm").html("<span class='ok'> Scrutin fermé avec succès</span>")
-    }
+	let ballotNumber = $("#ballotNumber").val();
+	$.ajax({
+		method: "POST",
+		url: "endVote.php",
+		data: { "ballotNumber": ballotNumber }
+	}).done(function (e) {
+		console.log(e);
+		$("#results").css("display", "inline-block");
 
- 	else $("#manageconfirm").html("<span class='ko'> scrutin déjà clos</span>")
+		if(e=="ok"){
+			console.log("scrutin fermé");
+			$("#manageconfirm").html("<span class='ok'> Scrutin fermé avec succès</span>")
+		}
 
- 	}).fail(function (e) {
- 		$("#manageconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
- 	});
+		else $("#manageconfirm").html("<span class='ko'> scrutin déjà clos</span>")
+
+	}).fail(function (e) {
+		$("#manageconfirm").html("<span class='ko'> ERROR: network problem 9</span>");
+	});
 }
 

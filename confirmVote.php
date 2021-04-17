@@ -22,6 +22,7 @@
         $json = json_encode($data, JSON_PRETTY_PRINT);
             file_put_contents("scrutin.json", $json);
         echo "ok";
+        die();
     }
     else
       echo "error";

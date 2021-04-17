@@ -8,7 +8,7 @@
             "Non",
             "J'ai oubli\u00e9"
         ],
-        "etat": "ferm\u00e9",
+        "etat": "ouvert",
         "electeurs": {
             "aldjia.dadache@gmail.com": {
                 "proc": "0",
@@ -16,7 +16,31 @@
             }
         },
         "points": {
-            "J": 6
+            "J": 0
+        }
+    },
+    "3677": {
+        "creator": "hugo.mouden@gmail.com",
+        "num_scrutin": "3677",
+        "question": "Vous pr\u00e9f\u00e9rez ?",
+        "options": [
+            "P\u00e2tes",
+            "Pizza"
+        ],
+        "etat": "ouvert",
+        "electeurs": {
+            "hugo.mouden@gmail.com": {
+                "proc": "1",
+                "reste": 1
+            },
+            "aldjida.dadache@gmail.com": {
+                "proc": "2",
+                "reste": "0"
+            }
+        },
+        "points": {
+            "Pizza": 3,
+            "P\u00e2tes": 4
         }
     },
     "6004": {
@@ -28,7 +52,7 @@
             "Non",
             "Javais un projet \u00e0 finir"
         ],
-        "etat": "ferm\u00e9",
+        "etat": "ouvert",
         "electeurs": {
             "hugo.mouden@gmail.com": {
                 "proc": "1",
@@ -56,11 +80,8 @@
         "electeurs": {
             "hugo.mouden@gmail.com": {
                 "proc": "2",
-                "reste": 3
+                "reste": "3"
             }
-        },
-        "points": {
-            "": 3
         }
     },
     "2137": {
@@ -85,6 +106,51 @@
         },
         "points": {
             "zz": 2
+        }
+    },
+    "3615": {
+        "creator": "jean.dujardin@gmail.com",
+        "num_scrutin": "3615",
+        "question": "Quel est votre film pr\u00e9f\u00e9r\u00e9 ?",
+        "options": [
+            "OSS117",
+            "Brice de Nice",
+            "The Artist"
+        ],
+        "etat": "ferm\u00e9",
+        "electeurs": {
+            "jean.dujardin@gmail.com": {
+                "proc": "0",
+                "reste": "1"
+            },
+            "guillaume.canet@gmail.com": {
+                "proc": "2",
+                "reste": "3"
+            },
+            "omar.sy@gmail.com": {
+                "proc": "1",
+                "reste": 0
+            }
+        },
+        "points": {
+            "OSS117": 1,
+            "Brice de Nice": 1
+        }
+    },
+    "8519": {
+        "creator": "omar.sy@gmail.com",
+        "num_scrutin": "8519",
+        "question": "L'aile ou la cuisse ?",
+        "options": [
+            "L'aile",
+            "La cuisse"
+        ],
+        "etat": "ouvert",
+        "electeurs": {
+            "omar.sy@gmail.com": {
+                "proc": "1",
+                "reste": "2"
+            }
         }
     }
 }
